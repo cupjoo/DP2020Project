@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<table>
+	<name>people</name>
+	<metadatas>
+		<data>last</data>
+		<data>first</data>
+		<data>addrId</data>
+	</metadatas>
+	<rows>
+		<row>
+			<col>Holub</col>
+			<col>Allen</col>
+			<col>1</col>
+		</row>
+		<row>
+			<col>Flintstone</col>
+			<col>Wilma</col>
+			<col>2</col>
+		</row>
+		<row>
+			<col>Flintstone</col>
+			<col>Fred</col>
+			<col>2</col>
+		</row>
+	</rows>
+</table>

@@ -677,9 +677,14 @@ import com.holub.tools.ArrayIterator;
 				report(t, "Store/Load");
 			}
 			try {
+				testXMLStore();
+			} catch (Throwable t) {
+				report(t, "XML Store/Load");
+			}
+			try {
 				testHTMLExport();
 			} catch (Throwable t) {
-				report(t, "Store/Load");
+				report(t, "HTML Store");
 			}
 			try {
 				testJoin();
@@ -820,6 +825,20 @@ import com.holub.tools.ArrayIterator;
 			Reader in = new FileReader("people");
 			people = new ConcreteTable(new CSVImporter(in));
 			in.close();
+		}
+
+		public void testXMLStore() throws IOException, ClassNotFoundException { // Flush the table to disk, then reread it.
+			// Subsequent tests that use the
+			// "people" table will
+			// fail if this operation fails.
+
+			Writer out = new FileWriter("people.xml");
+			people.export(new XMLExporter(out));
+			out.close();
+
+//			Reader in = new FileReader("people");
+//			people = new ConcreteTable(new CSVImporter(in));
+//			in.close();
 		}
 
 		public void testHTMLExport() throws IOException, ClassNotFoundException { // Flush the table to disk, then reread it.
