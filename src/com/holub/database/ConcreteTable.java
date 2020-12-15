@@ -836,9 +836,9 @@ import com.holub.tools.ArrayIterator;
 			people.export(new XMLExporter(out));
 			out.close();
 
-//			Reader in = new FileReader("people");
-//			people = new ConcreteTable(new CSVImporter(in));
-//			in.close();
+			Reader in = new FileReader("people.xml");
+			people = new ConcreteTable(new XMLImporter(in));
+			in.close();
 		}
 
 		public void testHTMLExport() throws IOException, ClassNotFoundException { // Flush the table to disk, then reread it.
