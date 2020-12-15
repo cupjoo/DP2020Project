@@ -245,8 +245,9 @@ public class Console
 		}
 
 		try
-		{	
-			connection = DriverManager.getConnection("file:/"+databaseName, "harpo", "swordfish");
+		{
+//			connection = DriverManager.getConnection("file:/"+databaseName, "harpo", "swordfish");
+			connection = DriverManager.getConnection("file:/Users/junyoung/workspace/DP2020Project/Dbase", "harpo", "swordfish");
 			statement = connection.createStatement();
 		}
 		catch( SQLException e )
