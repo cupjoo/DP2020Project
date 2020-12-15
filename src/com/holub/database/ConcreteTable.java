@@ -677,6 +677,11 @@ import com.holub.tools.ArrayIterator;
 				report(t, "Store/Load");
 			}
 			try {
+				testHTMLExport();
+			} catch (Throwable t) {
+				report(t, "Store/Load");
+			}
+			try {
 				testJoin();
 			} catch (Throwable t) {
 				report(t, "Join");
@@ -804,9 +809,9 @@ import com.holub.tools.ArrayIterator;
 		}
 
 		public void testStore() throws IOException, ClassNotFoundException { // Flush the table to disk, then reread it.
-																				// Subsequent tests that use the
-																				// "people" table will
-																				// fail if this operation fails.
+			// Subsequent tests that use the
+			// "people" table will
+			// fail if this operation fails.
 
 			Writer out = new FileWriter("people");
 			people.export(new CSVExporter(out));
@@ -815,6 +820,16 @@ import com.holub.tools.ArrayIterator;
 			Reader in = new FileReader("people");
 			people = new ConcreteTable(new CSVImporter(in));
 			in.close();
+		}
+
+		public void testHTMLExport() throws IOException, ClassNotFoundException { // Flush the table to disk, then reread it.
+			// Subsequent tests that use the
+			// "people" table will
+			// fail if this operation fails.
+
+			Writer out = new FileWriter("people.html");
+			people.export(new HTMLExporter(out));
+			out.close();
 		}
 
 		public void testJoin() {
